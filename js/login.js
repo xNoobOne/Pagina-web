@@ -29,7 +29,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     alert("Inicio de sesión exitoso");
 
     // Redirigir al inicio
-    window.location.href = "/html/inicio.html";
+    window.location.href = "../html/inicio.html";
   } catch (error) {
     console.error("Error al iniciar sesión:", error);
     alert("Error al iniciar sesión: " + error.message);

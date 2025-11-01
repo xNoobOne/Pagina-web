@@ -47,7 +47,7 @@ document.getElementById("cerrarSesionBtn").addEventListener("click", async (e) =
   try {
     await signOut(auth);
     alert("Has cerrado sesión correctamente.");
-    window.location.href = "/index.html";
+    window.location.href = "../index.html";
   } catch (error) {
     console.error("Error al cerrar sesión:", error.message);
   }

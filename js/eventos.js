@@ -28,7 +28,7 @@ const noEventsMessage = document.getElementById("noEventsMessage");
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
     // Redirigir si no está logueado
-    window.location.href = "/html/login.html";
+    window.location.href = "../html/login.html";
     return;
   }
 

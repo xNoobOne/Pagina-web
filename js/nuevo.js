@@ -66,7 +66,7 @@ document.getElementById("registroform").addEventListener("submit", async (e) => 
     });
 
     alert(` Cuenta creada exitosamente como ${rol}.`);
-    window.location.href = "/html/login.html";
+    window.location.href = "../html/login.html";
   } catch (error) {
     console.error(" Error al registrar:", error);
     alert("Error al registrar usuario: " + error.message);

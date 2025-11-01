@@ -26,7 +26,7 @@ const nombreUsuario = document.getElementById("nombreUsuario");
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
     alert("Por favor inicia sesión para ver tu historial.");
-    window.location.href = "/html/login.html";
+    window.location.href = "../html/login.html";
     return;
   }
 

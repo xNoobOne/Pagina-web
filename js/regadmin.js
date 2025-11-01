@@ -41,7 +41,7 @@ onAuthStateChanged(auth, async (user) => {
 
     if (rol !== "administrador") {
       alert(" Solo los administradores pueden registrar eventos.");
-      window.location.href = "/html/inicio.html";
+      window.location.href = "../html/inicio.html";
       return;
     }
   } catch (error) {
