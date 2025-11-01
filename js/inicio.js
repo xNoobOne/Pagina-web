@@ -23,6 +23,10 @@ const db = getFirestore(app);
 onAuthStateChanged(auth, async (user) => {
   const nombreUsuarioSpan = document.getElementById("nombreUsuario");
   const nombreBienvenida = document.getElementById("nombreBienvenida");
+ const linkCrearEvento = document.getElementById("linkCrearEvento");
+
+  // Ocultamos el enlace por defecto (en caso de que el usuario no sea admin)
+  if (linkCrearEvento) linkCrearEvento.style.display = "none";
 
   if (user) {
     const userDoc = await getDoc(doc(db, "usuarios", user.uid));
@@ -31,6 +35,10 @@ onAuthStateChanged(auth, async (user) => {
       const nombre = data.nombre || "Usuario";
       nombreUsuarioSpan.textContent = nombre;
       nombreBienvenida.textContent = nombre;
+
+        if (data.rol === "administrador" && linkCrearEvento) {
+        linkCrearEvento.style.display = "inline-block"; // o "block" según tu diseño
+      }
     } else {
       nombreUsuarioSpan.textContent = user.email;
       nombreBienvenida.textContent = user.email;

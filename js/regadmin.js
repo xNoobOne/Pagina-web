@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.5.0/firebas
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
 import { getFirestore, doc, getDoc, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.5.0/firebase-firestore.js";
 
-// Configuración Firebase
+// Configuración de Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyChq2s4BLtk3fXjMMHJIcmzapglUdefCaU",
   authDomain: "proyecto-de-aula-316ea.firebaseapp.com",
@@ -19,7 +19,10 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Verificar sesión y rol
+// Referencia al formulario
+const form = document.getElementById("formEvento");
+
+// Verificar usuario y rol
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
     alert("⚠️ Debes iniciar sesión como administrador.");
@@ -28,61 +31,65 @@ onAuthStateChanged(auth, async (user) => {
   }
 
   try {
-    const docRef = doc(db, "usuarios", user.uid);
-    const docSnap = await getDoc(docRef);
+    const userRef = doc(db, "usuarios", user.uid);
+    const userSnap = await getDoc(userRef);
 
-    if (!docSnap.exists()) {
-      alert(" No se encontró el perfil del usuario.");
+    if (!userSnap.exists()) {
+      alert("❌ No se encontró tu perfil de usuario.");
       window.location.href = "/html/login.html";
       return;
     }
 
-    const rol = docSnap.data().rol;
+    const userData = userSnap.data();
 
-    if (rol !== "administrador") {
-      alert(" Solo los administradores pueden registrar eventos.");
+    if (userData.rol !== "administrador") {
+      alert("🚫 Solo los administradores pueden registrar eventos.");
       window.location.href = "../html/inicio.html";
       return;
     }
+
+    console.log("✅ Usuario administrador verificado");
+
   } catch (error) {
     console.error("Error al verificar rol:", error);
-    alert("Error al verificar permisos.");
+    alert("Error al verificar permisos de usuario.");
   }
 });
 
-// Capturar formulario
-const form = document.getElementById("formEvento");
+// Escuchar el envío del formulario
+if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-form?.addEventListener("submit", async (e) => {
-  e.preventDefault();
+    const titulo = document.getElementById("titulo").value.trim();
+    const descripcion = document.getElementById("descripcion").value.trim();
+    const presentador = document.getElementById("presentador").value.trim();
+    const horas = parseInt(document.getElementById("horas").value);
+    const fecha = document.getElementById("fecha").value;
 
-  const titulo = document.getElementById("titulo").value.trim();
-  const descripcion = document.getElementById("descripcion").value.trim();
-  const presentador = document.getElementById("presentador").value.trim();
-  const horas = parseInt(document.getElementById("horas").value);
-  const fecha = document.getElementById("fecha").value;
-  const imagen = document.getElementById("imagen").value.trim();
+    if (!titulo || !descripcion || !presentador || !horas || !fecha) {
+      alert("⚠️ Por favor completa todos los campos obligatorios.");
+      return;
+    }
 
-  if (!titulo || !descripcion || !presentador || !horas || !fecha) {
-    alert("Por favor, completa todos los campos obligatorios.");
-    return;
-  }
+    try {
+      await addDoc(collection(db, "eventos"), {
+        titulo,
+        descripcion,
+        presentador,
+        horas,
+        fecha,
+        creado: new Date().toISOString()
+      });
 
-  try {
-    await addDoc(collection(db, "eventos"), {
-      titulo,
-      descripcion,
-      presentador,
-      horas,
-      fecha,
-      imagen: imagen || "",
-      creado: new Date().toISOString()
-    });
+      alert("🎉 Evento creado correctamente.");
+      form.reset();
 
-    alert(" Evento creado correctamente.");
-    form.reset();
-  } catch (error) {
-    console.error("Error al crear evento:", error);
-    alert(" Ocurrió un error al guardar el evento.");
-  }
-});
+    } catch (error) {
+      console.error("Error al crear evento:", error);
+      alert("❌ Ocurrió un error al guardar el evento.");
+    }
+  });
+}
+
+console.log("✅ Script cargado correctamente y escuchando el submit");
