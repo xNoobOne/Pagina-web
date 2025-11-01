@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registrar Evento - Bienestar Institucional</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --orange: #FF7043;
+      --light-orange: #ffe6cc;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #fff, var(--light-orange));
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+            background: linear-gradient(90deg, #FFF3E0 55%, rgba(211, 25, 25, 0.16) 100%);
+    }
+
+    header {
+      background-color: var(--orange);
+      color: white;
+      padding: 10px 20px;
+      
+    }
+
+    .subtitle {
+      text-align: center;
+          background-color: var(--orange);
+      color: white;
+      font-family: Georgia, Times, 'Times New Roman', serif;
+    }
+
+    .container {
+      flex: 1;
+      max-width: 600px;
+      background-color: #fff;
+      padding: 30px;
+      margin-top: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      
+
+    }
+
+    button[type="submit"] {
+      background-color: var(--orange);
+      border: none;
+      padding: 10px 16px;
+      color: white;
+      font-weight: 600;
+      border-radius: 6px;
+    }
+
+    .class {
+      background-color: var(--orange);
+      color: white;
+      padding: 20px;
+      text-align: 100px;
+      margin-top: auto;
+    }
+       .footer-custom {
+      background-color: #FF7043;
+      color: white;
+      padding: 30px 0px;
+      text-align: center;
+      font-size: 0.9rem;
+      position: relative;
+      flex-shrink: 0;
+      margin-top: auto;
+    }
+
+    .footer-img {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h3 class="m-0">Registrar Nuevo Evento</h3>
+<div style="text-align: center;">
+  <a class="subtitle" href="inicio.html">Inicio</a>
+</div>
+
+  </header>
+  
+
+  <main class="d-flex justify-content-center">
+    <div class="container">
+      <form id="formEvento">
+        <div class="mb-3">
+          <label for="titulo" class="form-label">Título del evento</label>
+          <input type="text" id="titulo" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="descripcion" class="form-label">Descripción</label>
+          <textarea id="descripcion" class="form-control" rows="3" required></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="presentador" class="form-label">Presentador</label>
+          <input type="text" id="presentador" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="horas" class="form-label">Horas del evento</label>
+          <input type="number" id="horas" class="form-control" min="1" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="fecha" class="form-label">Fecha</label>
+          <input type="date" id="fecha" class="form-control" required>
+        </div>
+
+        <div class="text-center">
+          <button type="submit">Guardar Evento</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer-custom position-relative">
+    <p class="mb-0">© 2025 Politécnico Colombiano Andino | Bienestar Institucional</p>
+    <img src="/imagenes/images.png" class="footer-img" alt="Imagen a la derecha">
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="/js/regadmin.js"></script>
+</body>
+</html>

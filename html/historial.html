@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Historial de eventos - Politécnico Colombo Andino</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      color: #333;
+    }
+
+    header {
+      background-color: #FF7043;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 30px;
+      flex-wrap: wrap;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd8b0;
+    }
+
+    .user {
+      background-color: white;
+      color: black;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+
+  
+    .sub-barra {
+      background-color: #f8931f3b;
+      color: #333;
+      padding: 8px 30px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 15px;
+    }
+
+   
+    .contenido {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 50%;
+      opacity: 0.95;
+      padding: 30px;
+      min-height: 70vh;
+      background: linear-gradient(90deg, #FFF3E0 55%, rgba(211, 25, 25, 0.16) 100%);
+    }
+
+   
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: white;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      text-align: left;
+      padding: 12px 15px;
+      font-size: 15px;
+    }
+
+    th {
+      font-weight: 600;
+      border-bottom: 2px solid #FF7043;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #91f7e6;
+    }
+
+    tr:nth-child(odd) td {
+      background-color: #9fffee;
+    }
+
+  
+    footer {
+      background-color: #FF7043;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 13px;
+    }
+
+    footer img {
+      height: 40px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      th, td {
+        font-size: 13px;
+        padding: 8px;
+      }
+
+      .contenido {
+        padding: 15px;
+        background-size: 70%;
+
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 10px;
+      }
+
+      th, td {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="/imagenes/LOGO COLOR-04.png" alt="Logo Politécnico Colombo Andino" />
+    <nav>
+      <a href="inicio.html">Inicio</a>
+      <a href="#">Historial Eventos</a>
+      <a href="eventos.html">Registro Eventos</a>
+      <span class="user" id="nombreUsuario">Usuario</span>
+    </nav>
+  </header>
+
+  <div class="sub-barra">Tu historial de eventos</div>
+
+  <section class="contenido">
+    <table>
+      <thead>
+        <tr>
+          <th>Actividad</th>
+          <th>Nombre</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Horas cumplidas</th>
+        </tr>
+      </thead>
+      <tbody id="historialBody">
+        <tr><td colspan="5" style="text-align:center;">Cargando historial...</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    <img src="/imagenes/LOGO COLOR-04.png" alt="Logo inferior" />
+    <div>
+      <img src="/imagenes/images.png" alt="Logos aliados" />
+    </div>
+  </footer>
+
+
+  <script type="module" src="/js/historial.js"></script>
+</body>
+</html>

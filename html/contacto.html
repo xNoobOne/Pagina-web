@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(white, #f7b46a);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+   header {
+  background-color: #d44a00;
+  color: white;
+  padding: 10px 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+}
+.navbar {
+  margin-left: auto; 
+}
+.navbar a {
+  color: white !important;
+  font-weight: 500;
+  margin-left: 15px; 
+}
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+    main {
+      flex: 1;
+      padding: 50px 0;
+    }
+    .contacto-info i {
+      font-size: 2rem;
+      color: #d44a00;
+    }
+    .btn-enviar {
+      background-color: #d44a00;
+      color: white;
+    }
+    .btn-enviar:hover {
+      background-color: #b53d00;
+    }
+
+    /* Footer corregido */
+    footer {
+      background-color: #d44a00;
+      color: white;
+      text-align: center; 
+      padding: 10px 30px;
+      margin-top: auto;
+      position: relative; 
+    }
+
+    .footer-img {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      width: 180px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Encabezado -->
+ <header>
+  <div class="container d-flex justify-content-between align-items-center">
+    <img src="/imagenes/LOGO COLOR-04.png" alt="Logo" height="60">
+    <nav class="navbar navbar-expand">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="/index.html">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="login.html">Eventos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <!-- Sección principal -->
+  <main>
+    <div class="container text-center">
+      <h3 class="mb-4">DÉJANOS UN MENSAJE</h3>
+
+      <div class="row mb-4 contacto-info">
+        <div class="col-md-4">
+          <i class="bi bi-envelope"></i>
+          <p>Correo electrónico<br><strong>contacto@solrenacimiento.co</strong></p>
+        </div>
+        <div class="col-md-4">
+          <i class="bi bi-telephone"></i>
+          <p>Teléfonos de contacto<br><strong>601 7754356 / 3222844313</strong></p>
+        </div>
+        <div class="col-md-4">
+          <i class="bi bi-geo-alt"></i>
+          <p>Ubicación<br><strong>Calle 63c No. 27b - 30<br>Bogotá D.C. Colombia</strong></p>
+        </div>
+      </div>
+
+      <form class="row g-3 justify-content-center">
+        <div class="col-md-5">
+          <input type="text" class="form-control" placeholder="Nombre completo" required>
+        </div>
+        <div class="col-md-5">
+          <input type="text" class="form-control" placeholder="Evento de interés" required>
+        </div>
+        <div class="col-md-5">
+          <input type="tel" class="form-control" placeholder="Teléfono de contacto" required>
+        </div>
+        <div class="col-md-5">
+          <input type="email" class="form-control" placeholder="Correo electrónico" required>
+        </div>
+        <div class="col-md-10">
+          <textarea class="form-control" rows="4" placeholder="Mensaje" required></textarea>
+        </div>
+        <div class="col-md-10">
+          <button type="submit" class="btn btn-enviar w-100">Enviar mensaje</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>© 2025 Sol del Renacimiento - Colombia Andina</p>
+    <img src="/imagenes/images.png" class="footer-img" alt="Imagen a la derecha">
+  </footer>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
